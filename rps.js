@@ -21,19 +21,38 @@ function playerPlay() {
 }
 function playRound(playerSelection, computerSelection) { 
     if (playerSelection === computerSelection) {
-        return "You Tie, you Matched your opponent";
+        return "You tie, you Matched your opponent";
     } else if ((playerSelection === 1) && (computerSelection === 2)) {
-        return "You Lost, Paper beats Rock";
+        return "You lost, Paper beats Rock";
     } else if ((playerSelection === 2) && (computerSelection === 3)) {
-        return "You Lost, Scissor beats Paper";
+        return "You lost, Scissor beats Paper";
     } else if ((playerSelection === 3) && (computerSelection === 1)) {
         return "You lost, Rock beats Scissor";
     } else if ((computerSelection === 1) && (playerSelection === 2)) {
-        return "You Win, Paper beats Rock";
+        return "You win, Paper beats Rock";
     } else if ((computerSelection === 2) && (playerSelection === 3)) {
-        return "You Win, Scissor beats Paper";
+        return "You win, Scissor beats Paper";
     } else {
-        return "You Win, Rock beats Scissor";
+        return "You win, Rock beats Scissor";
     }
 }
-console.log(playRound(playerPlay(), computerPlay()));
+
+
+function game() {
+    let x = 0;
+    let y = 0;
+    let ctally = 0;
+    let ptally = 0;
+    for (let i = 0; i < 5; i++) {
+        x = playerPlay();
+        y = computerPlay();
+        console.log(playRound(x,y));
+        if (((x === 2) && (y === 1)) || 
+        ((x === 3) && (y === 2)) ||
+        ((x === 1) && (y === 3))) ptally++;
+        else if (x === y) ;
+        else ctally++;
+    }
+    console.log("Player won", ptally, " Computer won", ctally);
+}
+game();
